@@ -1,2 +1,4 @@
 /example_data/
 /filtered/
+__pycache__/
+/__pycache__/
