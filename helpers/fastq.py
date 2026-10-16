@@ -82,10 +82,12 @@ def check_quality(qual, quality_threshold):
     """
     # calculate total quality
     total = 0
-    for char in qual[:-1]:
+    qual = qual.strip()
+    total = 0
+    for char in qual:
         total += ord(char) - 33
     # calculate mean quality
-    average = total / (len(qual) - 1)
+    average = total / len(qual)
     # check quality
     if average >= quality_threshold:
         return True
