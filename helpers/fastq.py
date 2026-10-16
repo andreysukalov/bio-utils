@@ -9,6 +9,8 @@ def read_fastq_record(file):
 
 
 def check_length(seq_length, length_bounds):
+    if type(length_bounds) == int or type(length_bounds) == float:
+        length_bounds = (0, length_bounds)
     if seq_length < length_bounds[0]:
         return False
     elif seq_length > length_bounds[1]:
