@@ -14,4 +14,4 @@ def filter_fastq(input_fastq, output_fastq, length_bounds=(0, 2**32)):
             if not check_length(seq_length, length_bounds):
                 continue
             for line in record:
-                file_out.wright(line)
+                file_out.write(line)
