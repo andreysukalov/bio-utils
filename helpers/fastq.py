@@ -25,3 +25,14 @@ def check_gc(seq, gc_bounds):
         return False
     else:
         return True
+
+
+def check_quality(qual, quality_thresholds):
+    total = 0
+    for char in qual[:-1]:
+        total += ord(char) - 33
+    average = total / (len(qual) - 1)
+    if average >= quality_thresholds:
+        return True
+    else:
+        return False
