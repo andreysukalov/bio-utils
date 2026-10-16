@@ -15,3 +15,7 @@ def check_length(seq_length, length_bounds):
         return False
     else:
         return True
+
+
+def check_gc(seq, gc_bounds):
+    gc = (seq.count("G") + seq.count("C")) / (len(seq) - 1) * 100
