@@ -1,5 +1,6 @@
 import os
 from helpers.fastq import read_fastq_record, check_length, check_gc, check_quality
+from helpers.bio_files import write_oneline_fasta
 
 
 def filter_fastq(
@@ -29,3 +30,10 @@ def filter_fastq(
                 continue
             for line in record:
                 file_out.write(line)
+
+
+def convert_multiline_fasta_to_oneline(input_fasta, output_fasta=None):
+    if output_fasta is None:
+        output_fasta = input_fasta + ".oneline.fasta"
+
+    write_oneline_fasta(input_fasta, output_fasta)
