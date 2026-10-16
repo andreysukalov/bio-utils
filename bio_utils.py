@@ -1,6 +1,6 @@
 import os
 from helpers.fastq import read_fastq_record, check_length, check_gc, check_quality
-from helpers.bio_files import write_oneline_fasta
+from helpers.bio_files import write_oneline_fasta, read_blast_hits
 
 
 def filter_fastq(
@@ -37,3 +37,11 @@ def convert_multiline_fasta_to_oneline(input_fasta, output_fasta=None):
         output_fasta = input_fasta + ".oneline.fasta"
 
     write_oneline_fasta(input_fasta, output_fasta)
+
+
+def parse_blast_output(input_file, output_file):
+    proteins = read_blast_hits(input_file)
+
+    with open(output_file, "w") as file_out:
+        for protein in proteins:
+            file_out.write(protein + "\n")
