@@ -1,12 +1,7 @@
 from bio_utils import filter_fastq
 
-input_fastq = input("Input FASTQ [example_data/example_fastq.fastq]: ")
-if input_fastq == "":
-    input_fastq = "example_data/example_fastq.fastq"
-
-output_fastq = input("Output filename [result.fastq]: ")
-if output_fastq == "":
-    output_fastq = "result.fastq"
+input_fastq = "example_data/example_fastq.fastq"
+output_fastq = "result.fastq"
 
 min_gc = float(input("Minimum GC (%): "))
 max_gc = float(input("Maximum GC (%): "))
