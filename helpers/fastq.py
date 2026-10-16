@@ -20,6 +20,8 @@ def check_length(seq_length, length_bounds):
 
 
 def check_gc(seq, gc_bounds):
+    if type(gc_bounds) == int or type(gc_bounds) == float:
+        gc_bounds = (0, gc_bounds)
     gc = (seq.count("G") + seq.count("C")) / (len(seq) - 1) * 100
     if gc < gc_bounds[0]:
         return False
@@ -29,12 +31,12 @@ def check_gc(seq, gc_bounds):
         return True
 
 
-def check_quality(qual, quality_thresholds):
+def check_quality(qual, quality_threshold):
     total = 0
     for char in qual[:-1]:
         total += ord(char) - 33
     average = total / (len(qual) - 1)
-    if average >= quality_thresholds:
+    if average >= quality_threshold:
         return True
     else:
         return False

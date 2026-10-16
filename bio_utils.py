@@ -9,6 +9,9 @@ def filter_fastq(
     length_bounds=(0, 2**32),
     quality_threshold=0,
 ):
+    if not os.path.exists("filtered"):
+        os.mkdir("filtered")
+
     output_path = os.path.join("filtered", output_fastq)
     with open(input_fastq, "r") as file_in, open(output_path, "w") as file_out:
         while True:
