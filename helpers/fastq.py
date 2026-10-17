@@ -81,7 +81,6 @@ def check_quality(qual, quality_threshold):
         True or False.
     """
     # calculate total quality
-    total = 0
     qual = qual.strip()
     total = 0
     for char in qual:
